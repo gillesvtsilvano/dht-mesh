@@ -1,0 +1,33 @@
+DOCUMENTARRR e ORGANIZAR
+
+refazer os rcv
+
+REFAZER O RETRIVE para utilizar wait e notify
+
+dht remove
+dht retrive
+
+
+-criar um semáforo para o acesso a estrutura (ou ao método nbt_craft_msg_update)
+vários métodos acessam ele, inclusive uma thread separada. talvez cause inconsistência
+
+
+- Criar um tempo para as informações dentro das tabelas
+
+
+- descobrir como gerar um sleep interrompível (delay para remover o módulo possivlmente é o delay adicionado as threads update e check)
+
+- Alterar os campos key e data das mensagens para tamanhos variáveis. Atualmente 256
+
+- melhorar as funções de impressão, tlvz com netlink ou melhorar a forma como é utilizado o seqfile
+
+###### ANOTACOES
+
+
+ALterar a forma de inserção/remoção etc
+- add aplicação e chave e tamanho da chave
+- Mudar a nomenclatura atual de chave para idx
+-  
+
+POSTERIORMENTE
+- TEstar a DHT com o arp

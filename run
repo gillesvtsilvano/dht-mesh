@@ -1,0 +1,39 @@
+#!/bin/python
+
+from subprocess import call
+import os
+
+os.system("rm -f .*.swp")
+os.system("rm -f *~")
+
+print "Cleaning up the mess ... ",
+#call(["make", "clean"])
+os.system("make clean > /dev/null")
+print "Ok!"
+
+print "Building new versions of the modules ... ",
+#call(["make"])
+os.system("make > /dev/null 2> error.log")
+print "Ok!"
+
+
+print "Removing previous version of modules ... ",
+os.system("rmmod dht 2>&1 > /dev/null")
+os.system("rmmod nbt 2>&1 > /dev/null")
+#call(["rmmod", "dht"])
+#call(["rmmod", "nbt"])
+print "Ok!"
+
+print "Inserting newest versions ... ",
+os.system("insmod nbt.ko > ./insmod.nbt.log")
+os.system("insmod dht.ko > ./insmod.dht.log")
+#call(["insmod", "nbt.ko"])
+#call(["insmod", "dht.ko"])
+print "Ok!"
+
+print "\n\nDmesg output"
+print "-------------------------------------------------"
+os.system("dmesg > dmesg.out")
+os.system("cat dmesg.out | tail -n4")
+print "-------------------------------------------------"
+print "Ok!"

@@ -1,0 +1,3 @@
+BUGS
+
+- Quando a DHT envia dados para outra DHT automaticamente, a receptora trava
